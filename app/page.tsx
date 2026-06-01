@@ -101,43 +101,33 @@ export default function BirthdayPage() {
       <FloatingBalloons />
 
       {/* Music control button */}
-      <div className="fixed top-4 right-4 z-20">
-        <div className="group flex items-center">
-          <button
-            onClick={toggleMusic}
-            className="bg-white/80 backdrop-blur-md rounded-full p-3 shadow-lg hover:scale-110 transition-all duration-300"
-          >
-            {isPlaying ? "🔊" : "🔇"}
-          </button>
+      <div className="fixed top-4 right-4 z-20 group flex items-center">
+        <button
+          onClick={() => setShowVolume(!showVolume)}
+          className="bg-white/80 backdrop-blur-md rounded-full p-3 shadow-lg"
+        >
+          {isPlaying ? "🔊" : "🔇"}
+        </button>
 
-          <div
-            className="
-        overflow-hidden
-        max-w-0
-        opacity-0
-        group-hover:max-w-40
-        group-hover:opacity-100
-        transition-all
-        duration-300
-        ease-in-out
-      "
-          >
-            <div className="ml-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-lg flex items-center gap-2">
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={handleVolumeChange}
-                className="w-24 accent-rose-500"
-              />
-
-              <span className="text-xs text-gray-600 min-w-[35px]">
-                {Math.round(volume * 100)}%
-              </span>
-            </div>
-          </div>
+        <div
+          className={`
+      ml-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-lg
+      ${showVolume ? "flex" : "hidden"}
+      md:flex
+      md:max-w-0 md:opacity-0
+      md:group-hover:max-w-40 md:group-hover:opacity-100
+      transition-all duration-300
+    `}
+        >
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={handleVolumeChange}
+            className="w-24 accent-rose-500"
+          />
         </div>
       </div>
 
