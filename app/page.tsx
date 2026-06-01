@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import PhotoGallery from "@/components/PhotoGallery";
+import { GalleryPhoto } from "@/types/gallery";
 
 export default function BirthdayPage() {
   const [isStarted, setIsStarted] = useState(false);
@@ -10,10 +12,27 @@ export default function BirthdayPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Ganti dengan foto-foto Anda
-  const photos = [
-    { src: "/photos/1.jpg", caption: "Kenangan indah bersama ✨" },
-    { src: "/photos/2.jpg", caption: "Tawa dan kebahagiaan 🎈" },
-    { src: "/photos/3.jpg", caption: "Momen spesial 💝" },
+  const photos: GalleryPhoto[] = [
+    {
+      id: "1",
+      src: "/photos/1.jpg",
+      alt: "Mountain",
+      title: "Mountain Escape",
+      description: "Morning atmosphere",
+    },
+    {
+      id: "2",
+      src: "/photos/2.jpg",
+      alt: "Beach",
+      title: "Ocean Breeze",
+      description: "Summer mood",
+    },
+    {
+      id: "3",
+      src: "/photos/3.jpg",
+      alt: "Forest",
+      title: "Green Forest",
+    },
   ];
 
   useEffect(() => {
@@ -123,82 +142,53 @@ export default function BirthdayPage() {
 
               <p className="text-gray-600 italic text-base md:text-lg text-center border-l-4 border-rose-300 pl-4">
                 "Setiap tahun yang bertambah adalah hadiah terindah. Semoga
-                umur, waktu, cinta, sehat, sakit dan bahagia-mu penuh dengan
+                umur, waktu, cinta, sehat, sakit dan bahagia ibu penuh dengan
                 keberkahan."
               </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                <WishCard
-                  emoji="🌟"
-                  title="Kebahagiaan"
-                  text="Semoga setiap hari selalu diiringi tawa dan kebahagiaan"
-                />
-                <WishCard
-                  emoji="💫"
-                  title="Kesuksesan"
-                  text="Mimpimu adalah peta menuju masa depan yang cerah"
-                />
-                <WishCard
-                  emoji="❤️"
-                  title="Kesehatan"
-                  text="Tubuh yang sehat untuk menikmati setiap momen berharga"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <WishCard
-                  emoji="🌈"
-                  title="Petualangan"
-                  text="Semoga selalu berani mengejar hal-hal baru"
-                />
-                <WishCard
-                  emoji="🕊️"
-                  title="Kedamaian"
-                  text="Hati yang tenang dalam menghadapi segala hal"
-                />
-              </div>
             </div>
           </div>
         </div>
 
         {/* Photo Slider */}
-        <div
-          className="max-w-4xl mx-auto px-4 mb-12 animate-fadeInUp"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-            <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white/50 backdrop-blur-sm">
-              <div className="relative h-[400px] md:h-[500px]">
+        <div className="max-w-4xl mx-auto px-4 mb-12">
+          <div className="grid grid-cols-4 gap-[3px]">
+            {photos.map((photo) => (
+              <div
+                key={photo.id}
+                className="
+        group
+        relative
+        aspect-square
+        overflow-hidden
+        bg-zinc-200
+      "
+              >
                 <Image
-                  src={photos[currentPhotoIndex].src}
-                  sizes="full"
-                  alt={`Birthday memory ${currentPhotoIndex + 1}`}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={photo.src}
+                  alt={photo.alt}
+                  sizes="24"
+                  className="
+          object-cover
+          transition-all
+          duration-200
+          group-hover:brightness-90
+          shadow-lg
+          rounded-md
+        "
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
-                  <p className="text-lg md:text-xl font-medium drop-shadow-lg">
-                    {photos[currentPhotoIndex].caption}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Photo indicators */}
-          <div className="flex justify-center gap-2 mt-4">
-            {photos.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentPhotoIndex(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === currentPhotoIndex
-                    ? "w-8 bg-rose-500"
-                    : "w-2 bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
+                <div
+                  className="
+          absolute
+          inset-0
+          opacity-0
+          transition-opacity
+          group-hover:opacity-100
+          bg-black/10
+        "
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -303,7 +293,7 @@ function LandingPage({ onStart }: { onStart: () => void }) {
           </button>
 
           <p className="text-xs text-gray-400 mt-6">
-            ✨ Klik tombol di atas untuk memulai ✨
+            ✨ Klik tombol untuk buka kejutan ✨
           </p>
         </div>
       </div>

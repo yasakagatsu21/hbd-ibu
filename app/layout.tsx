@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
+import { Cake, CakeIcon, CakeSlice } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({
@@ -14,8 +15,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Happy Birthday!",
-  description: "Special birthday wishes just for you",
+  title: "hbd ibu sayang",
+  description: "ibu sayang tapi bawel",
 };
 
 export default function RootLayout({
