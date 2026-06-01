@@ -10,6 +10,8 @@ export default function BirthdayPage() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [volume, setVolume] = useState(0.5);
+  const [showVolume, setShowVolume] = useState(false);
 
   // Ganti dengan foto-foto Anda
   const photos: GalleryPhoto[] = [
@@ -37,11 +39,17 @@ export default function BirthdayPage() {
 
   useEffect(() => {
     if (isStarted && audioRef.current) {
-      audioRef.current.volume = 0.5;
+      audioRef.current.volume = volume;
       audioRef.current.play();
       setIsPlaying(true);
     }
-  }, [isStarted]);
+  }, [isStarted, volume]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
 
   useEffect(() => {
     if (isStarted) {
@@ -60,6 +68,15 @@ export default function BirthdayPage() {
         audioRef.current.play();
       }
       setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = Number(e.target.value);
+    setVolume(newVolume);
+
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
     }
   };
 
@@ -84,12 +101,45 @@ export default function BirthdayPage() {
       <FloatingBalloons />
 
       {/* Music control button */}
-      <button
-        onClick={toggleMusic}
-        className="fixed top-4 right-4 z-20 bg-white/80 backdrop-blur-md rounded-full p-3 shadow-lg hover:scale-110 transition-transform duration-300"
-      >
-        {isPlaying ? "🔊" : "🔇"}
-      </button>
+      <div className="fixed top-4 right-4 z-20">
+        <div className="group flex items-center">
+          <button
+            onClick={toggleMusic}
+            className="bg-white/80 backdrop-blur-md rounded-full p-3 shadow-lg hover:scale-110 transition-all duration-300"
+          >
+            {isPlaying ? "🔊" : "🔇"}
+          </button>
+
+          <div
+            className="
+        overflow-hidden
+        max-w-0
+        opacity-0
+        group-hover:max-w-40
+        group-hover:opacity-100
+        transition-all
+        duration-300
+        ease-in-out
+      "
+          >
+            <div className="ml-2 bg-white/80 backdrop-blur-md rounded-full px-3 py-2 shadow-lg flex items-center gap-2">
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={volume}
+                onChange={handleVolumeChange}
+                className="w-24 accent-rose-500"
+              />
+
+              <span className="text-xs text-gray-600 min-w-[35px]">
+                {Math.round(volume * 100)}%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Main content */}
       <div className="relative z-10 pb-20">
