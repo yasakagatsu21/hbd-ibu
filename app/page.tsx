@@ -17,23 +17,153 @@ export default function BirthdayPage() {
   const photos: GalleryPhoto[] = [
     {
       id: "1",
-      src: "/photos/1.jpg",
-      alt: "Mountain",
-      title: "Mountain Escape",
-      description: "Morning atmosphere",
+      src: "/photos/1.jpeg",
+      alt: "1",
+      title: "1",
     },
     {
       id: "2",
       src: "/photos/2.jpg",
-      alt: "Beach",
-      title: "Ocean Breeze",
-      description: "Summer mood",
+      alt: "2",
+      title: "2",
     },
     {
       id: "3",
       src: "/photos/3.jpg",
-      alt: "Forest",
-      title: "Green Forest",
+      alt: "3",
+      title: "3",
+    },
+    {
+      id: "4",
+      src: "/photos/4.jpg",
+      alt: "4",
+      title: "4",
+    },
+    {
+      id: "5",
+      src: "/photos/5.jpg",
+      alt: "5",
+      title: "5",
+    },
+    {
+      id: "6",
+      src: "/photos/6.jpg",
+      alt: "6",
+      title: "6",
+    },
+    {
+      id: "7",
+      src: "/photos/7.jpg",
+      alt: "7",
+      title: "7",
+    },
+    {
+      id: "8",
+      src: "/photos/8.jpg",
+      alt: "8",
+      title: "8",
+    },
+    {
+      id: "9",
+      src: "/photos/9.jpg",
+      alt: "9",
+      title: "9",
+    },
+    {
+      id: "10",
+      src: "/photos/10.jpg",
+      alt: "10",
+      title: "10",
+    },
+    {
+      id: "11",
+      src: "/photos/11.jpg",
+      alt: "11",
+      title: "11",
+    },
+    {
+      id: "12",
+      src: "/photos/12.jpg",
+      alt: "12",
+      title: "12",
+    },
+    {
+      id: "13",
+      src: "/photos/13.jpg",
+      alt: "13",
+      title: "13",
+    },
+    {
+      id: "14",
+      src: "/photos/14.jpg",
+      alt: "14",
+      title: "14",
+    },
+    {
+      id: "15",
+      src: "/photos/15.jpg",
+      alt: "15",
+      title: "15",
+    },
+    {
+      id: "16",
+      src: "/photos/16.jpg",
+      alt: "16",
+      title: "16",
+    },
+    {
+      id: "17",
+      src: "/photos/17.jpg",
+      alt: "17",
+      title: "17",
+    },
+    {
+      id: "18",
+      src: "/photos/18.jpg",
+      alt: "18",
+      title: "18",
+    },
+    {
+      id: "19",
+      src: "/photos/19.jpg",
+      alt: "19",
+      title: "19",
+    },
+    {
+      id: "20",
+      src: "/photos/20.jpg",
+      alt: "20",
+      title: "20",
+    },
+    {
+      id: "21",
+      src: "/photos/21.jpg",
+      alt: "21",
+      title: "21",
+    },
+    {
+      id: "22",
+      src: "/photos/22.jpg",
+      alt: "22",
+      title: "22",
+    },
+    {
+      id: "23",
+      src: "/photos/23.jpg",
+      alt: "23",
+      title: "23",
+    },
+    {
+      id: "24",
+      src: "/photos/24.jpg",
+      alt: "24",
+      title: "24",
+    },
+    {
+      id: "25",
+      src: "/photos/25.jpg",
+      alt: "25",
+      title: "25",
     },
   ];
 
@@ -190,7 +320,7 @@ export default function BirthdayPage() {
         </div>
 
         {/* Photo Slider */}
-        <div className="max-w-4xl mx-auto px-4 mb-12">
+        <div className="max-w-4xl mx-auto px-8 mb-12">
           <div className="grid grid-cols-4 gap-[3px]">
             {photos.map((photo) => (
               <div
