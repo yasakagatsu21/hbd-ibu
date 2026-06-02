@@ -154,12 +154,6 @@ export default function BirthdayPage() {
       title: "23",
     },
     {
-      id: "24",
-      src: "/photos/24.jpg",
-      alt: "24",
-      title: "24",
-    },
-    {
       id: "25",
       src: "/photos/25.jpg",
       alt: "25",
@@ -269,7 +263,9 @@ export default function BirthdayPage() {
             className="text-5xl md:text-7xl font-bold mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            <span className="text-gold">Selamat Ulang Tahun</span>
+            <span className="bg-gradient-to-b from-blue-800 to-pink-400 bg-clip-text text-transparent">
+              Selamat Ulang Tahun
+            </span>
             <br />
             <span className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
               Bu Guru
@@ -307,7 +303,11 @@ export default function BirthdayPage() {
             <div className="space-y-6">
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed text-center">
                 Selamat ulang tahun,{" "}
-                <span className="font-bold text-rose-500">Ibu Sayang</span>! 🎂
+                <span className="font-bold text-rose-500">
+                  <br />
+                  Ibu Sayang
+                </span>
+                ! 🎂
               </p>
 
               <p className="text-gray-600 italic text-base md:text-lg text-center border-l-4 border-rose-300 pl-4">
@@ -319,7 +319,22 @@ export default function BirthdayPage() {
           </div>
         </div>
 
-        {/* Photo Slider */}
+        {/* video 1 */}
+        <div className="max-w-4xl mx-auto px-8 mb-12">
+          <div className="p-14 bg-pink-400/30 rounded-lg shadow-lg rotate-3">
+            <div className="relative w-full -rotate-3 shadow-2xl overflow-hidden rounded-lg pt-[56.25%]">
+              <iframe
+                className="absolute left-0 top-0 h-full w-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="YouTube video player"
+                allowFullScreen
+              />
+            </div>
+            <h2 className="-rotate-3 ml-5 mt-5">Ucapan Para bocil's</h2>
+          </div>
+        </div>
+
+        {/* Photo Galery*/}
         <div className="max-w-4xl mx-auto px-8 mb-12">
           <div className="grid grid-cols-4 gap-[3px]">
             {photos.map((photo) => (
