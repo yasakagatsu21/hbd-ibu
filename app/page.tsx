@@ -325,7 +325,7 @@ export default function BirthdayPage() {
             <div className="relative w-full -rotate-3 shadow-2xl overflow-hidden rounded-lg pt-[56.25%]">
               <iframe
                 className="absolute left-0 top-0 h-full w-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/ZYW7ZYe-2EA"
                 title="YouTube video player"
                 allowFullScreen
               />
