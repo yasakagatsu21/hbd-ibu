@@ -321,16 +321,18 @@ export default function BirthdayPage() {
 
         {/* video 1 */}
         <div className="max-w-4xl mx-auto px-8 mb-12">
-          <div className="p-14 bg-pink-400/30 rounded-lg shadow-lg rotate-3">
+          <div className="md:p-14 p-4 bg-pink-400/30 rounded-lg shadow-lg rotate-3">
             <div className="relative w-full -rotate-3 shadow-2xl overflow-hidden rounded-lg pt-[56.25%]">
               <iframe
                 className="absolute left-0 top-0 h-full w-full"
-                src="https://www.youtube.com/embed/ZYW7ZYe-2EA"
+                src="https://www.youtube.com/embed/gSm6vtuUMvY"
                 title="YouTube video player"
                 allowFullScreen
               />
             </div>
-            <h2 className="-rotate-3 ml-5 mt-5">Ucapan Para bocil's</h2>
+            <h2 className="-rotate-3 ml-5 mt-5 text-green-800 font-extrabold">
+              Ucapan Para bocil's
+            </h2>
           </div>
         </div>
 
